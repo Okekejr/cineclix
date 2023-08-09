@@ -9,30 +9,25 @@ import {
   Spinner,
   Text,
 } from "@chakra-ui/react";
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useEffect, useRef } from "react";
 import { BiSearch } from "react-icons/bi";
-import { Movies } from "../types";
 import { useRouter } from "next/router";
+import { useSearch } from "@/hooks/search";
 
 const Search = () => {
-  const [search, setSearch] = useState("");
-  const [results, setResults] = useState<Movies["results"]>([]);
-  const [loading, setLoading] = useState(false);
-  const [hidden, setHidden] = useState(true);
+  const {
+    search,
+    setHidden,
+    hidden,
+    setResults,
+    setSearch,
+    fetchSearch,
+    results,
+    handleChange,
+    loading,
+  } = useSearch();
   const inputElement = useRef(null);
   const searchRef = useRef<HTMLDivElement>(null);
-  const APIKEY = process.env.NEXT_PUBLIC_MOVIEDB_APIKEY;
-
-  const fetchSearch = useCallback(async () => {
-    setLoading(true);
-
-    const data = await fetch(
-      `https://api.themoviedb.org/3/search/movie?api_key=${APIKEY}&language=en-GB&query=${search}&page=1&include_adult=false`
-    );
-    const movies = await data.json();
-    setResults(movies.results.slice(0, 7));
-    setLoading(false);
-  }, [search]);
 
   useEffect(() => {
     if (search.length <= 2) {
@@ -60,10 +55,6 @@ const Search = () => {
       document.removeEventListener("mousedown", checkIfClickedOutside);
     };
   }, [fetchSearch, search, hidden]);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setSearch(event.target.value);
-  };
 
   const router = useRouter();
 

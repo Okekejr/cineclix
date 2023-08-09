@@ -5,47 +5,24 @@ import {
   Heading,
   Spinner,
 } from "@chakra-ui/react";
-import { FC, useCallback, useEffect, useState } from "react";
-import { popular, Root } from "../types";
+import { FC, useEffect } from "react";
 import { GenreBadges } from "../genre";
 import { Movie } from "../movie";
 import { PopularFlex } from "../layout/popularFlex";
 import { SectionContainer } from "../layout/SectionContainer";
+import { usePopular } from "@/hooks/popular";
 
 export const Popular: FC<ContainerProps> = (props) => {
-  const [movies, setMovies] = useState<popular["results"]>();
-  const [badge, setBadge] = useState<Root["genres"]>([]);
-  const [selectedBadgeId, setSelectedBadgeId] = useState<number | null>(null);
-  const [loading, setLoading] = useState(false);
-  const APIKEY = process.env.NEXT_PUBLIC_MOVIEDB_APIKEY;
-
-  const badgeRequest = useCallback(async () => {
-    try {
-      setLoading(true);
-      const query = await fetch(
-        `https://api.themoviedb.org/3/genre/movie/list?api_key=${APIKEY}&language=en-GB`
-      );
-      const genreData = await query.json();
-      setBadge(genreData.genres);
-      setLoading(false);
-    } catch (error) {
-      alert(error);
-    }
-  }, []);
-
-  const popularRequest = async () => {
-    try {
-      setLoading(true);
-      const query = await fetch(
-        `https://api.themoviedb.org/3/movie/popular?api_key=${APIKEY}&language=en-GB&page=1`
-      );
-      const popularMovies = await query.json();
-      setMovies(popularMovies.results);
-      setLoading(false);
-    } catch (error) {
-      alert(error);
-    }
-  };
+  const {
+    loading,
+    badge,
+    movies,
+    badgeRequest,
+    popularRequest,
+    selectedBadgeId,
+    setSelectedBadgeId,
+    setMovies,
+  } = usePopular();
 
   useEffect(() => {
     badgeRequest();
