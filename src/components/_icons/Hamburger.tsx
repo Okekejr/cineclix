@@ -1,4 +1,4 @@
-import { Icon } from "@chakra-ui/react"
+import { Icon } from "@chakra-ui/react";
 
 export const Hamburger = ({ ...rest }) => {
   return (
@@ -10,5 +10,5 @@ export const Hamburger = ({ ...rest }) => {
         fill="#FAFAFC"
       />
     </Icon>
-  )
-}
+  );
+};
