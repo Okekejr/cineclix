@@ -135,24 +135,35 @@ const MoviePage: FC<Props> = ({ data, socials, ...rest }) => {
               User <br /> Score
             </Flex>
             <Flex alignItems="center" gap={4}>
-              <Link href={homepage} isExternal>
+              <Link href={homepage} data-testid={homepage} isExternal>
                 <BiWorld size="2rem" />
               </Link>
 
               {instagram_id && (
-                <Link href={`https://instagram.com/${instagram_id}`} isExternal>
+                <Link
+                  href={`https://instagram.com/${instagram_id}`}
+                  data-testid={`https://instagram.com/${instagram_id}`}
+                  isExternal
+                >
                   <FaInstagramSquare size="2rem" />
                 </Link>
               )}
 
               {facebook_id && (
-                <Link href={`https://facebook.com/${facebook_id}`} isExternal>
+                <Link
+                  href={`https://facebook.com/${facebook_id}`}
+                  data-testid={`https://facebook.com/${facebook_id}`}
+                  isExternal
+                >
                   <FaFacebook size="2rem" />
                 </Link>
               )}
-
               {twitter_id && (
-                <Link href={`https://twitter.com/${twitter_id}`} isExternal>
+                <Link
+                  href={`https://twitter.com/${twitter_id}`}
+                  data-testid={`https://twitter.com/${twitter_id}`}
+                  isExternal
+                >
                   <AiFillTwitterCircle size="2rem" />
                 </Link>
               )}
