@@ -58,7 +58,7 @@ export const Movie: FC<Props> = ({ data }) => {
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={title}
             roundedTop="md"
-            h="fit-content"
+            h={{ base: "18rem", md: "fit-content" }}
             boxShadow="xl"
             transition="ease-in-out duration-150"
             _hover={{ opacity: 0.75 }}
