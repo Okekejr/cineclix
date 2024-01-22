@@ -50,15 +50,15 @@ export const Movie: FC<Props> = ({ data }) => {
         cursor="pointer"
         roundedTop="md"
         backgroundColor="gray.700"
+        w={{ base: "9.5rem", md: "13rem", lg: "14rem" }}
         h={{ base: "fit-content", md: "27rem" }}
       >
-        <Box as="span" position="relative" display="inline-block" w="14rem">
+        <Box as="span" position="relative" display="inline-block">
           <Image
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={title}
             roundedTop="md"
-            w="14rem"
-            h={{ base: "18rem", md: "fit-content" }}
+            h="fit-content"
             boxShadow="xl"
             transition="ease-in-out duration-150"
             _hover={{ opacity: 0.75 }}
@@ -97,7 +97,7 @@ export const Movie: FC<Props> = ({ data }) => {
           )}
         </Box>
 
-        <Box as="div" py={2} w="14rem" textAlign="center">
+        <Box as="div" py={2} w="fit-content" m="auto" textAlign="center">
           <Text
             display="block"
             fontWeight="semibold"

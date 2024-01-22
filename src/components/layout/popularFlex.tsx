@@ -11,8 +11,8 @@ export const PopularFlex: FC<Props> = ({ children, ...rest }) => {
       gap={8}
       justifyContent="space-evenly"
       flexWrap="wrap"
-      margin="auto"
-      w={{ base: "100%", md: "100%" }}
+      
+      w={{ base: "100%" }}
       {...rest}
     >
       {children}
