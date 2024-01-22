@@ -1,4 +1,4 @@
-import { ContainerProps, Flex, Link, useDisclosure } from "@chakra-ui/react";
+import { Box, ContainerProps, Flex, useDisclosure } from "@chakra-ui/react";
 import { FC } from "react";
 import { Logo } from "../logo";
 import Search from "../search";
@@ -6,6 +6,7 @@ import { MobileDrawer } from "./MobileDrawer";
 import { MobileToggle } from "./MobileToggle";
 import { NavLinks } from "./NavLinks";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 interface Props extends ContainerProps {
   isShrunk: boolean;
@@ -52,7 +53,9 @@ export const Navbar: FC<Props> = ({ isShrunk, ...rest }) => {
         </Link>
 
         {path.includes("/movies") ? (
-          <Link href="/">Home</Link>
+          <Box display={{ base: "none", md: "block" }}>
+            <Link href="/">Home</Link>
+          </Box>
         ) : (
           <NavLinks
             marginInlineEnd={{ md: "1rem" }}

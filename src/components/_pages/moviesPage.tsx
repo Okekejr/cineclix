@@ -80,11 +80,24 @@ const MoviePage: FC<Props> = ({ data, socials, ...rest }) => {
             />
           </Box>
 
-          <Heading fontSize={{ base: "2rem", md: "1.5rem", lg: "2rem" }}>
+          <Heading
+            fontSize={{ base: "2rem", md: "1.5rem", lg: "2rem" }}
+            textShadow="-5px -4px #ffffff"
+            bgGradient="linear(to-l, #7143D6, #003DE9, #861B27)"
+            bgClip="text"
+          >
             {title}
           </Heading>
 
-          <Flex alignItems="center">
+          <Flex
+            alignItems="center"
+            w="fit-content"
+            borderRadius="10px"
+            boxShadow="0 4px 8px #861B27"
+            bgColor="#000"
+            color="#fff"
+            padding="1rem"
+          >
             <MovieCert id={id} />
             <Text px="2">&bull;</Text>
             <Text fontWeight="bold">
@@ -97,42 +110,51 @@ const MoviePage: FC<Props> = ({ data, socials, ...rest }) => {
           <Flex
             flexWrap="wrap"
             mt={8}
-            ml={8}
-            gap={4}
-            justifyItems="start"
+            gap={{ base: 4, md: 8 }}
+            justifyItems={{ base: "center", md: "start" }}
             alignItems="center"
+            w="fit-content"
+            borderRadius="10px"
+            boxShadow="0 4px 8px #861B27"
+            bgColor="#000"
+            color="#fff"
+            padding="1rem"
           >
-            {vote_average ? (
-              <Box
-                w="14"
-                h="14"
-                bg="gray.800"
-                rounded="full"
-                transform="translateX(-50%)"
-              >
-                <CircularProgress
-                  value={Math.round(vote_average * 10)}
-                  size="100%"
-                  trackColor="#374151"
-                  color={
-                    vote_average >= 7.5
-                      ? "green"
-                      : vote_average >= 5
-                      ? "orange"
-                      : "red"
-                  }
+            <Flex alignItems="center" ml="2rem">
+              {vote_average ? (
+                <Box
+                  w="14"
+                  h="14"
+                  bg="gray.800"
+                  rounded="full"
+                  transform="translateX(-50%)"
                 >
-                  <CircularProgressLabel
-                    fontSize={{ md: "0.9rem" }}
-                    fontWeight="bold"
-                  >{`${Math.round(vote_average * 10)}%`}</CircularProgressLabel>
-                </CircularProgress>
-              </Box>
-            ) : (
-              ""
-            )}
-            <Flex>
-              User <br /> Score
+                  <CircularProgress
+                    value={Math.round(vote_average * 10)}
+                    size="100%"
+                    trackColor="#374151"
+                    color={
+                      vote_average >= 7.5
+                        ? "green"
+                        : vote_average >= 5
+                        ? "orange"
+                        : "red"
+                    }
+                  >
+                    <CircularProgressLabel
+                      fontSize={{ md: "0.9rem" }}
+                      fontWeight="bold"
+                    >{`${Math.round(
+                      vote_average * 10
+                    )}%`}</CircularProgressLabel>
+                  </CircularProgress>
+                </Box>
+              ) : (
+                ""
+              )}
+              <Flex>
+                User <br /> Score
+              </Flex>
             </Flex>
             <Flex alignItems="center" gap={4}>
               <Link href={homepage} data-testid={homepage} isExternal>
@@ -170,7 +192,15 @@ const MoviePage: FC<Props> = ({ data, socials, ...rest }) => {
             </Flex>
           </Flex>
 
-          <Flex flexDir="column" w={{ base: "", md: "" }} mt={4}>
+          <Flex
+            flexDir="column"
+            mt={4}
+            borderRadius="10px"
+            boxShadow="0 4px 8px #861B27"
+            bgColor="#000"
+            color="#fff"
+            padding="1rem"
+          >
             <Text
               fontSize={{ base: "2rem", md: "1.5rem", lg: "2rem" }}
               fontWeight="bold"
