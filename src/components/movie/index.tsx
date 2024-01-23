@@ -30,15 +30,15 @@ export const Movie: FC<Props> = ({ data }) => {
   return (
     <SlideFade
       in
-      offsetX="100%"
+      offsetY="100%"
       transition={{
         enter: {
-          transform: "translateX(0)",
+          transform: "translateY(0)",
           opacity: 1,
           config: { duration: 500 },
         },
         exit: {
-          transform: "translateX(-100%)",
+          transform: "translateY(100%)",
           opacity: 0,
           config: { duration: 500 },
         },
@@ -58,7 +58,7 @@ export const Movie: FC<Props> = ({ data }) => {
             src={`https://image.tmdb.org/t/p/w500${poster_path}`}
             alt={title}
             roundedTop="md"
-            h={{ base: "18rem", md: "fit-content" }}
+            h={{ base: "15rem", md: "fit-content" }}
             boxShadow="xl"
             transition="ease-in-out duration-150"
             _hover={{ opacity: 0.75 }}
@@ -101,7 +101,7 @@ export const Movie: FC<Props> = ({ data }) => {
           <Text
             display="block"
             fontWeight="semibold"
-            fontSize={{ base: "", md: "0.8rem" }}
+            fontSize={{ base: "sm", md: "0.8rem" }}
             lineHeight="tight"
             transition="color ease-in duration-150"
             _hover={{ color: "gray.400" }}
