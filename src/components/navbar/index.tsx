@@ -6,7 +6,7 @@ import { MobileDrawer } from "./MobileDrawer";
 import { MobileToggle } from "./MobileToggle";
 import { NavLinks } from "./NavLinks";
 import { useRouter } from "next/router";
-import Link from "next/link";
+import { Link } from "@chakra-ui/next-js";
 
 interface Props extends ContainerProps {
   isShrunk: boolean;
